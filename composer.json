@@ -1,0 +1,20 @@
+{
+    "name": "zygis/cms_php",
+    "authors": [
+        {
+            "name": "zgs3",
+            "email": "zkairaitis@gmail.com"
+        }
+    ],
+    "require": {
+        "doctrine/orm": "^2.12",
+        "doctrine/dbal": "^3.2",
+        "doctrine/annotations": "^1.13",
+        "symfony/cache": "^6.1"
+    },
+    "autoload": {
+        "files": [
+            "src/Models/Pages.php"
+        ]
+    }
+}

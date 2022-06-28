@@ -1,0 +1,20 @@
+:root {
+  --background: #e9e9e9;
+  --lightgray:#F7F6FF;
+  /* --gray: #dddddd; */
+  --gray: #b8b8b8;
+  --white: #FFFFFF;
+  --blue: #02577A;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  height: 100%;
+  background-color: var(--background);
+}

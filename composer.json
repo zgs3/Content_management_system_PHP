@@ -13,8 +13,8 @@
         "symfony/cache": "^6.1"
     },
     "autoload": {
-        "files": [
-            "src/Models/Pages.php"
-        ]
+        "psr-4": {
+            "Models\\": "src/Models"
+        }
     }
 }

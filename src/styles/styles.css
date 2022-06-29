@@ -4,14 +4,14 @@ header,
 footer {
   width: 100%;
   background-color: var(--gray);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+  height: 3.3rem;
 }
 
-ul {
-  display: flex;
+nav, ul {
   align-items: center;
-  height: 3.3rem;
-  padding-left: 2rem;
+  padding-left: 1rem;
+  height: 100%;
 }
 
 li {
@@ -19,18 +19,20 @@ li {
   margin-left: 1rem;
 }
 
-a {
+a, .logOutBtn {
   text-decoration: none;
   padding: .35rem .55rem;
   font-size: 1.2rem;
   color: var(--blue);
+  border: 0;
   border-radius: 25px;
   background-color: var(--lightgray);
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1);
   transition-duration: .3s;
+  cursor: pointer;
 }
 
-a:hover {
+a:hover, .logOutBtn:hover {
   color: var(--lightgray);
   background-color: var(--blue);
 }
@@ -41,12 +43,6 @@ main {
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1);
   padding: 3rem 0;
   background-color: var(--white);
-}
-
-.container {
-  width: 80%;
-  min-height: 25rem;
-  margin: auto;
 }
 
 footer {
@@ -61,3 +57,33 @@ footer {
   color: var(--blue);
 }
 
+main h3 {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.container {
+  width: 80%;
+  min-height: 25rem;
+  margin: auto;
+}
+
+.logOutBtn {
+  margin: .4rem 2rem;
+}
+
+.pageListDiv {
+  margin: auto;
+}
+
+#loginForm {
+  width: 25rem;
+  margin: 8rem auto;
+  padding: 1rem;
+  text-align: center;
+  border: 2px inset var(--blue);
+  background-color: var(--white);
+}

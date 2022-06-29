@@ -1,6 +1,6 @@
 <header>
   <nav>
-    <ul>
+    <ul class="flex">
       <?php
       include_once "PageList.php";
       foreach ($pages as $page)

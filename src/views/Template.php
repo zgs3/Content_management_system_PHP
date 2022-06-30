@@ -13,15 +13,15 @@
 
   <?php
   include_once "bootstrap.php";
-  include "Navigation.php";
+  include "src/views/partials/Navigation.php";
   ?>
-  <main>
     <div class="container">
+      <main>
 
       <?php
       if (isset($_SERVER["PATH_INFO"])) {
         $currentPage = ltrim($_SERVER["PATH_INFO"], "/");
-      } else if ($_SERVER["REQUEST_URI"] === "/cms_php/") {
+      } else if ($_SERVER["REQUEST_URI"] === "/cms_php" . "/") {
         $currentPage = "Home";
       } else {
         $currentPage = '';
@@ -41,7 +41,7 @@
   </main>
 
   <?php
-  include_once "Footer.php"
+  include_once "src/views/partials/Footer.php"
   ?>
 </body>
 

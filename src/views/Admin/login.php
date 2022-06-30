@@ -1,11 +1,14 @@
 <?php
 
+$explodedPath = explode("/", $_SERVER["REQUEST_URI"]);
+$rootPath = "/" . $explodedPath[1] . "/";
+
 session_start();
 // logout 
 if (isset($_POST['logOut'])) {
   session_destroy();
   session_start();
-  header('Location: ' . rtrim($_SERVER["REQUEST_URI"], 'admin'));
+  header("Location: " . $rootPath);
   exit;
 }
 

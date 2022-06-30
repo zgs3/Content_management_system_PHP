@@ -15,7 +15,6 @@ include_once "bootstrap.php";
 </head>
 
 <body>
-
   <div id="loginForm" <?php isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true
                         ? print("style = \"display: none\"")
                         : print("style = \"display: block\"") ?>>
@@ -34,32 +33,34 @@ include_once "bootstrap.php";
   <div <?php isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true
           ? print("style = \"display: block\"")
           : print("style = \"display: none\"") ?>>
-    <header>
-      <div>
-        <form action="" method="POST">
-          <button type="submit" name="logOut" title="Log out" class="logOutBtn">
-            LOG OUT
-          </button>
-        </form>
-      </div>
-    </header>
+
+    <?php include "adminHeader.php" ?>
+
     <div class="container">
-      <main>
-        <h3>List of existing pages:</h3>
-        <div class="pageListDiv flex">
+      <!-- <main> -->
+        <h3>Existing pages:</h3>
+        <div class="pageListDiv">
           <?php
-          print("<ul>");
+          print("<table>");
+          print("<tr>");
+          print("<th>Page name</th>");
+          print("<th>Actions</th>");
+          print("</tr>");
           foreach ($pages as $page) {
+            $id = $page->getId();
             $title = $page->getTitle();
-            print("<li>" . $title . "</li>");
+            print("<tr>");
+            print("<td>" . $title . "</td>");
+            print("<td><a href='" . $_SERVER["REQUEST_URI"] . "/edit?id=$id'>Edit</a></td>");
+            print("</tr>");
           }
-          print("</ul>");
+          print("</table>");
           ?>
         </div>
-      </main>
+      <!-- </main> -->
     </div>
     <?php
-    include "./src/views/Footer.php";
+    include "src/views/partials/Footer.php";
     ?>
   </div>
 </body>

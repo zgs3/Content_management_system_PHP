@@ -1,14 +1,8 @@
 @import './global.css';
 
-header,
-footer {
-  width: 100%;
-  background-color: var(--gray);
-  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
-  height: 3.3rem;
-}
 
-nav, ul {
+nav,
+ul {
   align-items: center;
   padding-left: 1rem;
   height: 100%;
@@ -19,7 +13,39 @@ li {
   margin-left: 1rem;
 }
 
-a, .logOutBtn {
+.pageListDiv {
+  margin: auto;
+}
+
+.container table {
+  width: 80%;
+  margin: auto;
+  border-spacing: 0;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.container th {
+  padding-left: .5rem;
+  background-color: var(--mediumgray);
+  border-right: 0;
+  border-top: 0;
+  border: 1px solid var(--gray);
+}
+
+.container tr {
+  margin-bottom: .5rem;
+  line-height: 2.8rem;
+}
+
+.container td {
+  padding-left: .5rem;
+  border: 1px solid var(--gray);
+  background-color: var(--lightgray);
+}
+
+.mainLink,
+.logOutBtn {
   text-decoration: none;
   padding: .35rem .55rem;
   font-size: 1.2rem;
@@ -32,20 +58,42 @@ a, .logOutBtn {
   cursor: pointer;
 }
 
-a:hover, .logOutBtn:hover {
+.mainLink:hover,
+.logOutBtn:hover {
   color: var(--lightgray);
   background-color: var(--blue);
 }
 
-main {
+.container {
   width: 80%;
-  margin: 5rem auto;
-  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1);
-  padding: 3rem 0;
-  background-color: var(--white);
+  min-height: 25rem;
+  margin: 2rem auto;
 }
 
-footer {
+
+.container main {
+  width: 80%;
+  min-height: 20rem;
+  margin: auto;
+  padding: 2rem 1rem;
+  background-color: var(--white);
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1);
+}
+
+.container > h3 {
+  width: 80%;
+  margin: 0 auto 1rem;
+}
+
+.mainHeader,
+.mainFooter {
+  width: 100%;
+  background-color: var(--gray);
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+  height: 3.3rem;
+}
+
+.mainFooter {
   position: fixed;
   bottom: 0;
   display: flex;
@@ -57,26 +105,38 @@ footer {
   color: var(--blue);
 }
 
-main h3 {
-  text-align: center;
-}
-
 .flex {
   display: flex;
-}
-
-.container {
-  width: 80%;
-  min-height: 25rem;
-  margin: auto;
 }
 
 .logOutBtn {
   margin: .4rem 2rem;
 }
 
-.pageListDiv {
+.editBlockHead {
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto 1rem;
+}
+
+.editFormDiv {
+  width: 80%;
   margin: auto;
+  border: 1px solid var(--gray);
+  background-color: var(--lightgray);
+}
+
+.editFormDiv div:nth-of-type(1) {
+  align-items: center;
+  height: 2.8625rem;
+  margin-bottom: 1rem;
+  background-color: var(--mediumgray);
+  border-bottom: 1px solid var(--gray);
+}
+
+.editFormDiv textarea {
+  margin: 1rem 5%;
+  width: 90%;
 }
 
 #loginForm {

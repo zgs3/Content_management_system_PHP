@@ -15,9 +15,8 @@
   include_once "bootstrap.php";
   include "src/views/partials/Navigation.php";
   ?>
-    <div class="container">
-      <main>
-
+  <div class="container">
+    <main>
       <?php
       if (isset($_SERVER["PATH_INFO"])) {
         $currentPage = ltrim($_SERVER["PATH_INFO"], "/");
@@ -30,14 +29,11 @@
       foreach ($pages as $page) {
         if ($page->getTitle() === $currentPage) {
           $content = $page->getContent();
-          // print(htmlentities($content));
-          // print("<br>---<br>");
           print(html_entity_decode($content));
         }
       }
       ?>
-
-    </div>
+  </div>
   </main>
 
   <?php

@@ -37,13 +37,12 @@ include_once "bootstrap.php";
     <?php include "adminHeader.php" ?>
 
     <div class="container">
-      <!-- <main> -->
         <h3>Existing pages:</h3>
         <div class="pageListDiv">
           <?php
           print("<table>");
           print("<tr>");
-          print("<th>Page name</th>");
+          print("<th>Page title</th>");
           print("<th>Actions</th>");
           print("</tr>");
           foreach ($pages as $page) {
@@ -51,13 +50,13 @@ include_once "bootstrap.php";
             $title = $page->getTitle();
             print("<tr>");
             print("<td>" . $title . "</td>");
-            print("<td><a href='" . $_SERVER["REQUEST_URI"] . "/edit?id=$id'>Edit</a></td>");
+            print("<td><a class='mainLink' href='" . $_SERVER["REQUEST_URI"] . "/edit?id=$id'>Edit</a>");
             print("</tr>");
           }
           print("</table>");
+          print("<div><a class='mainLink' href='" . $_SERVER["REQUEST_URI"] . "/create'>Add new page</a></div>");
           ?>
         </div>
-      <!-- </main> -->
     </div>
     <?php
     include "src/views/partials/Footer.php";

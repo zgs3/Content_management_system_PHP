@@ -1,6 +1,20 @@
 <?php
 require_once "login.php";
 include_once "bootstrap.php";
+
+if (isset($_POST['newTitle'])) {
+  $newPage = new Models\Pages($_POST['newTitle'], $_POST['newContent']);
+  $entityManager->persist($newPage);
+  $entityManager->flush();
+  header("Location: " . $rootPath . "admin");
+}
+
+if (isset($_POST['pageDelete'])) {
+  $pageDelete = $entityManager->find('Models\Pages', $_POST['deleteId']);
+  $entityManager->remove($pageDelete);
+  $entityManager->flush();
+  header("Location: " . $rootPath . "admin");
+}
 ?>
 
 <!DOCTYPE html>
@@ -37,31 +51,40 @@ include_once "bootstrap.php";
     <?php include "adminHeader.php" ?>
 
     <div class="container">
-        <h3>Existing pages:</h3>
-        <div class="pageListDiv">
-          <?php
-          print("<table>");
+      <h3>Existing pages:</h3>
+      <div class="pageListDiv">
+        <?php
+        print("<table>");
+        print("<tr>");
+        print("<th>Page title</th>");
+        print("<th>Actions</th>");
+        print("</tr>");
+        foreach ($pages as $page) {
+          $id = $page->getId();
+          $title = $page->getTitle();
           print("<tr>");
-          print("<th>Page title</th>");
-          print("<th>Actions</th>");
+          print("<td>" . $title . "</td>");
+          print("<td><div><a class='mainLink actionBtn' href='" . $_SERVER["REQUEST_URI"] . "/edit?id=$id'>Edit</a></div>");
+          print("<form action='' method='POST'>");
+          print("<input type='hidden' name='deleteId' value='" . $id . "'>");
+          print("<input type='submit' name='pageDelete' value='Delete' class='mainLink'>");
+          print("</form>");
+          print("</td>");
           print("</tr>");
-          foreach ($pages as $page) {
-            $id = $page->getId();
-            $title = $page->getTitle();
-            print("<tr>");
-            print("<td>" . $title . "</td>");
-            print("<td><a class='mainLink' href='" . $_SERVER["REQUEST_URI"] . "/edit?id=$id'>Edit</a>");
-            print("</tr>");
-          }
-          print("</table>");
-          print("<div><a class='mainLink' href='" . $_SERVER["REQUEST_URI"] . "/create'>Add new page</a></div>");
-          ?>
-        </div>
+        }
+        print("</table>");
+        print("<div><a class='mainLink' href='" . $_SERVER["REQUEST_URI"] . "/create'>Add new page</a></div>");
+        ?>
+      </div>
     </div>
     <?php
     include "src/views/partials/Footer.php";
     ?>
   </div>
+
+  <script>
+
+  </script>
 </body>
 
 </html>

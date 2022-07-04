@@ -9,6 +9,10 @@ if (isset($_POST['title'])) {
   $entityManager->flush();
   header("Location: " . $rootPath . "admin");
 }
+
+
+$pageToEdit = $entityManager->find('Models\Pages', $_GET['id']);
+
 ?>
 
 <!DOCTYPE html>
@@ -31,17 +35,18 @@ if (isset($_POST['title'])) {
 
     <div class="container">
       <div class="editBlockHead flex">
-        <h2>Editing "<?php print($pages[$_GET["id"] - 1]->getTitle()) ?>" page </h2>
+
+        <h2>Editing "<?php print($pageToEdit->getTitle()) ?>" page </h2>
         <a href="<?php echo $rootPath . "admin" ?>" class="mainLink">Cancel</a>
       </div>
       <div class="editFormDiv">
         <form action="" method="POST">
           <div class="flex">
             <label for="title">Title:</label>
-            <input type="text" name="title" value="<?php print($pages[$_GET["id"] - 1]->getTitle()) ?>"><br>
+            <input type="text" name="title" value="<?php print($pageToEdit->getTitle()) ?>"><br>
           </div>
           <label for="content">Content:</label><br>
-          <textarea name="content" cols="100" rows="20"><?php print($pages[$_GET["id"] - 1]->getContent()) ?></textarea><br>
+          <textarea name="content" cols="100" rows="20"><?php print($pageToEdit->getContent()) ?></textarea><br>
           <input type="submit" value="Submit">
         </form>
       </div>

@@ -48,8 +48,18 @@ li {
   background-color: var(--lightgray);
 }
 
+.container tr td:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container tr td:nth-child(2) a:nth-child(1) {
   margin-right: 1rem;
+}
+
+.actionBtn {
+  height: fit-content;
 }
 
 .mainLink,
@@ -70,6 +80,10 @@ li {
 .logOutBtn:hover {
   color: var(--lightgray);
   background-color: var(--blue);
+}
+
+.active {
+  color: var(--red);
 }
 
 .container {

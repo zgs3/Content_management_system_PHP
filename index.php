@@ -22,6 +22,8 @@ if ($_SERVER['REQUEST_URI'] === "/cms_php" . "/") {
   require __DIR__ . '/src/views/admin/admin.php';
 } else if ($_SERVER['REQUEST_URI'] == "/cms_php/admin/edit?" . $_SERVER["QUERY_STRING"]) {
   require __DIR__ . '/src/views/admin/edit.php';
+} else if ($_SERVER['REQUEST_URI'] == "/cms_php/admin?" . $_SERVER["QUERY_STRING"]) {
+  require __DIR__ . '/src/views/admin/admin.php';
 } else if ($_SERVER['REQUEST_URI'] == "/cms_php/admin/create") {
   require __DIR__ . '/src/views/admin/create.php';
 } else {

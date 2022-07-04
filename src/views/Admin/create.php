@@ -40,8 +40,10 @@ if (isset($_POST['newTitle'])) {
             <input type="text" name="newTitle" placeholder="New page title"><br>
           </div>
           <label for="newContent">Content:</label><br>
-          <textarea name="newContent" cols="100" rows="20" placeholder="New page content in HTML"></textarea><br>
-          <input type="submit" value="Submit">
+          <textarea name="newContent" cols="100" rows="18" maxlength="1000000" placeholder="New page content in HTML"></textarea><br>
+          <div>
+            <input type="submit" value="Submit" class="mainLink">
+          </div>
         </form>
       </div>
     </div>

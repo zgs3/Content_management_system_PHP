@@ -4,12 +4,12 @@ include_once "bootstrap.php";
 
 if (isset($_POST['title'])) {
   $pageEdit = $entityManager->find('Models\Pages', $_GET['id']);
-  $pageEdit->__construct($_POST['title'], $_POST['content']);
+  $pageEdit->setTitle($_POST['title']);
+  $pageEdit->setContent($_POST['content']);
   $entityManager->persist($pageEdit);
   $entityManager->flush();
   header("Location: " . $rootPath . "admin");
 }
-
 
 $pageToEdit = $entityManager->find('Models\Pages', $_GET['id']);
 
@@ -46,8 +46,10 @@ $pageToEdit = $entityManager->find('Models\Pages', $_GET['id']);
             <input type="text" name="title" value="<?php print($pageToEdit->getTitle()) ?>"><br>
           </div>
           <label for="content">Content:</label><br>
-          <textarea name="content" cols="100" rows="20"><?php print($pageToEdit->getContent()) ?></textarea><br>
-          <input type="submit" value="Submit">
+          <textarea name="content" cols="100" rows="18" maxlength="1000000"><?php print($pageToEdit->getContent()) ?></textarea><br>
+          <div>
+            <input type="submit" value="Submit" class="mainLink">
+          </div>
         </form>
       </div>
     </div>

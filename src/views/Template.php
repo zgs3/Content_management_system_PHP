@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="src/assets/icon.png" />
   <link href="src/styles/styles.css" rel="stylesheet" type="text/css" />
   <title>CMS</title>
 </head>
@@ -13,7 +14,7 @@
 
   <?php
   include_once "bootstrap.php";
-  include "src/views/partials/Navigation.php";
+  include_once "src/views/partials/Navigation.php";
   ?>
   <div class="container">
     <main>
@@ -29,7 +30,7 @@
       foreach ($pages as $page) {
         if ($page->getTitle() === $currentPage) {
           $content = $page->getContent();
-          print(html_entity_decode($content));
+          print($content);
         }
       }
       ?>

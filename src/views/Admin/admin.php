@@ -9,8 +9,8 @@ if (isset($_POST['newTitle'])) {
   header("Location: " . $rootPath . "admin");
 }
 
-if (isset($_POST['pageDelete'])) {
-  $pageDelete = $entityManager->find('Models\Pages', $_POST['deleteId']);
+if (isset($_GET['pageDelete'])) {
+  $pageDelete = $entityManager->find('Models\Pages', $_GET['pageDelete']);
   $entityManager->remove($pageDelete);
   $entityManager->flush();
   header("Location: " . $rootPath . "admin");
@@ -24,6 +24,7 @@ if (isset($_POST['pageDelete'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="src/assets/admin.png" />
   <link href="src/styles/styles.css" rel="stylesheet" type="text/css" />
   <title>CMS Admin</title>
 </head>
@@ -51,7 +52,7 @@ if (isset($_POST['pageDelete'])) {
     <?php include "adminHeader.php" ?>
 
     <div class="container">
-      <h3>Existing pages:</h3>
+      <h2>Existing pages:</h2>
       <div class="pageListDiv">
         <?php
         print("<table>");
@@ -64,11 +65,12 @@ if (isset($_POST['pageDelete'])) {
           $title = $page->getTitle();
           print("<tr>");
           print("<td>" . $title . "</td>");
-          print("<td><div><a class='mainLink actionBtn' href='" . $_SERVER["REQUEST_URI"] . "/edit?id=$id'>Edit</a></div>");
-          print("<form action='' method='POST'>");
-          print("<input type='hidden' name='deleteId' value='" . $id . "'>");
-          print("<input type='submit' name='pageDelete' value='Delete' class='mainLink'>");
-          print("</form>");
+          print("<td><div>");
+          print("<a class='mainLink' href='" . $_SERVER["REQUEST_URI"] . "/edit?id=$id'>Edit</a>");
+          if ($title !== "Home") {
+            print("<a class='mainLink' href='javascript:pageDelete(" . $id . ");'>Delete</a>");
+          }
+          print("</div>");
           print("</td>");
           print("</tr>");
         }
@@ -83,7 +85,11 @@ if (isset($_POST['pageDelete'])) {
   </div>
 
   <script>
-
+    function pageDelete(id) {
+      if (confirm("Are you sure you want to delete the page?")) {
+        window.location.href = '<?php print($_SERVER["REQUEST_URI"]) ?>?pageDelete=' + id;
+      }
+    }
   </script>
 </body>
 

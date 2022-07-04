@@ -23,7 +23,7 @@ class Pages
   private $title;
 
   /** 
-   * @ORM\Column(type="string") 
+   * @ORM\Column(type="text") 
    */
   private $content;
 
@@ -46,5 +46,15 @@ class Pages
   public function getId()
   {
     return $this->id;
+  }
+
+  public function setTitle($title)
+  {
+    $this->title = $title;
+  }
+
+  public function setContent($content)
+  {
+    $this->content = $content;
   }
 }

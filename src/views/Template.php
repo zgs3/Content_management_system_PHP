@@ -30,7 +30,9 @@
       foreach ($pages as $page) {
         if ($page->getTitle() === $currentPage) {
           $content = $page->getContent();
+          print("<div>");
           print($content);
+          print("</div>");
         }
       }
       ?>

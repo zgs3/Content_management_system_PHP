@@ -28,19 +28,20 @@ php ../composer.phar install
 
 Note that in this project default connection username "root" and no password is used. If you intend to use other connection credentials, you must change the username and password in "sql_connection.php" file accordingly.
 
-![myslq1](https://user-images.githubusercontent.com/97868964/174650299-175d5750-3320-4959-884b-852b3b081c61.png)
 
 7. 1. Click "Server".
 
 7. 2. Click "Data Import".
 
-![myslq2](https://user-images.githubusercontent.com/97868964/174650486-1d827643-ce70-42a9-ae1b-0dfde3400082.png)
+![inst2](https://user-images.githubusercontent.com/97868964/177289986-5cb33892-fab6-44e8-b695-e378723d74c1.png)
 
 7. 3. Choose "Import from Self-Contained File."
 
 7. 4. Provide the "mysql_db.sql" file directory (Located in the "db" folder).
 
 7. 5. Click "new" and type "mydb" schema name.
+
+![inst1](https://user-images.githubusercontent.com/97868964/177289605-fbd419bd-37e9-43e9-b38e-13e5eb8e2f3f.png)
 
 Note that schema name must be "mydb", because this name is written in the code, so the app would not work if the name was different.
 
